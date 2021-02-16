@@ -1,12 +1,24 @@
 package no.hvl.dat109.entity;
 
-public class Bilutleieselskap {
+import javax.persistence.Embedded;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
+@Entity
+@Table(schema = "oblig2", name = "bilutleiefirma")
+public class Bilutleiefirma {
+
+	@Id
 	private String navn;
 	private int telefon;
+	
+	@Embedded
 	private Adresse adresse;
+	
+	public Bilutleiefirma() {}
 
-	public Bilutleieselskap(String navn, int telefon, Adresse adresse) {
+	public Bilutleiefirma(String navn, int telefon, Adresse adresse) {
 
 		this.navn = navn;
 		this.telefon = telefon;

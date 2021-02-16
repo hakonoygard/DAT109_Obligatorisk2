@@ -1,11 +1,16 @@
 package no.hvl.dat109.entity;
 
+import javax.persistence.Embeddable;
+
+@Embeddable
 public class Adresse {
 
 	private String gatenavn;
 	private String husnr;
 	private int postnr;
 	private String sted;
+	
+	public Adresse() {}
 
 	public Adresse(String gatenavn, String husnr, int postnr, String sted) {
 		this.gatenavn = gatenavn;

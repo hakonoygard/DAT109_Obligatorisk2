@@ -1,12 +1,36 @@
 package no.hvl.dat109.entity;
 
-public class Kunde {
+import java.util.List;
 
+import javax.persistence.Embedded;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+@Entity
+@Table(schema = "oblig2", name = "kunde")
+public class Kunde {
+	
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int id; 
+
+	@Embedded
 	private Adresse adresse;
 	private String fornavn;
 	private String etternavn;
 	private int telefon;
 	private int kredittkortnr;
+	
+	
+	@OneToMany(mappedBy = "kunde")
+	private List<Reservasjon> reservasjoner; 
+	
+	public Kunde() {}
 
 	public Kunde(Adresse adresse, String fornavn, String etternavn, int telefon, int kredittkortnr) {
 
