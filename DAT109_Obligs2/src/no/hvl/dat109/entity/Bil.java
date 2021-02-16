@@ -1,5 +1,10 @@
 package no.hvl.dat109.entity;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(schema = "oblig2", name = "bil")
 public class Bil {
 	private String merke; 
 	private String modell; 
