@@ -11,7 +11,7 @@ import no.hvl.dat109.entity.*;
 @Stateless
 public class dbDAO {
 
-	@PersistenceContext(name = "brukerPU")
+	@PersistenceContext(name = "utleieselskapPU")
 	private EntityManager em;
 
 	public void lagreNyBil(Bil nyBil) {
@@ -19,7 +19,7 @@ public class dbDAO {
 	}
 
 	public List<Bil> hentAlleBiler() {
-		return em.createQuery("SELECT b FROM bil b", Bil.class).getResultList();
+		return em.createQuery("SELECT b FROM Bil b", Bil.class).getResultList();
 	}
 
 }

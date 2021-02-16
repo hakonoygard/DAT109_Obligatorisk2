@@ -1,20 +1,24 @@
 package no.hvl.dat109.entity;
 
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
 @Table(schema = "oblig2", name = "bil")
 public class Bil {
+	@Id
+	private String regNr; 
 	private String merke; 
 	private String modell; 
 	private String farge; 
-	private String regNr; 
-	private int kmStand; 
-	private Status status; 
-	private String gruppe;
 	
-	public Bil(String merke, String modell, String farge, String regNr, int kmStand, Status status, String gruppe) {
+	private int kmStand; 
+	private String status; 
+	private String gruppe;
+	public Bil() {}
+	
+	public Bil(String merke, String modell, String farge, String regNr, int kmStand, String status, String gruppe) {
 		this.merke = merke;
 		this.modell = modell;
 		this.farge = farge;
@@ -53,10 +57,10 @@ public class Bil {
 	public void setKmStand(int kmStand) {
 		this.kmStand = kmStand;
 	}
-	public Status getStatus() {
+	public String getStatus() {
 		return status;
 	}
-	public void setStatus(Status status) {
+	public void setStatus(String status) {
 		this.status = status;
 	}
 	public String getGruppe() {
